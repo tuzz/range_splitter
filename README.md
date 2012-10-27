@@ -7,6 +7,8 @@ Splits a range into multiple ranges.
 Splits are made as evenly as possible. The larger ranges are placed at the beginning of the array.
 
 ```ruby
+require 'range_splitter'
+
 (1..10).split
 #=> [1..5, 6..10]
 
@@ -24,6 +26,9 @@ Splits are made as evenly as possible. The larger ranges are placed at the begin
 
 (1..3).split(100)
 #=> [1..1, 2..2, 3..3]
+
+(1..1).split
+#=> [1..1]
 
 (1..3).split(1)
 #=> [1..3]
