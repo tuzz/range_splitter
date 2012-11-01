@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'range_splitter'
-  s.version     = '1.0.0'
+  s.version     = '2.0.0'
   s.summary     = 'Range Splitter'
   s.description = 'Splits a range into multiple ranges.'
   s.author      = 'Christopher Patuzzo'

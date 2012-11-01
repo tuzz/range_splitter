@@ -1,5 +1,7 @@
 class Range
-  def split(into = 2)
+  def split(params = {})
+    into = params[:into] || 2
+
     if into <= 0
       err = "Cannot split #{self} into #{into} ranges."
       raise ArgumentError.new(err)
@@ -11,8 +13,10 @@ class Range
       if max == partition
         [self]
       else
+        args = params.merge(:into => into - 1)
+
         head = min..partition
-        tail = ((partition + 1)..max).split(into - 1)
+        tail = ((partition + 1)..max).split(args)
 
         [head] + tail
       end
