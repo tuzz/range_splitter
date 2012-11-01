@@ -54,4 +54,20 @@ describe 'Range Splitter' do
     (-1..1).split(:into => 7).should == [-1..-1, 0..0, 1..1]
   end
 
+  it 'packs from the end of the array if an optional parameter is given' do
+    (1..9).split(:endianness => :little).should == [1..4, 5..9]
+    (1..11).split(:endianness => :little).should == [1..5, 6..11]
+    (5..8).split(:into => 3, :endianness => :little).should == [5..5, 6..6, 7..8]
+  end
+
+  it 'raises an argument error if the endianness is neither :little nor :big' do
+    expect { (1..1).split(:endianness => :little) }.to_not raise_error
+    expect { (1..1).split(:endianness => :big)    }.to_not raise_error
+    expect { (1..1).split                         }.to_not raise_error
+
+    expect { (1..1).split(:endianness => :foo)    }.to raise_error(
+      ArgumentError, /endianness/
+    )
+  end
+
 end
