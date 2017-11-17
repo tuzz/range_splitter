@@ -45,9 +45,3 @@ require 'range_splitter'
 (1..3).split(:into => -3)
 # ArgumentError: Cannot split 1..3 into -3 ranges.
 ```
-
-## Contribution
-
-Feel free to contribute. No commit is too small.
-
-You should follow me: [@cpatuzzo](https://twitter.com/cpatuzzo)
